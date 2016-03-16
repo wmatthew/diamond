@@ -4,9 +4,9 @@ Scripts to help design a puzzle. May contain spoilers.
 This program determines the number of arrangements that fit a set of criteria. There are two ways to define these arrangements:
  
 - P(n): The set of tilings of 3n^2 60º rhombuses that fill a regular hexagon.
-- Q(n): The set of polycubes that fit in a n^3 box with no overhangs in all 3 axial directions.
+- Q(n): The set of [polycubes](https://en.wikipedia.org/wiki/Polycube) that fit in a n^3 box with no overhangs in all 3 axial directions.
 
-These two definitions are equivalent.
+These two definitions are equivalent; an [isometric projection](https://en.wikipedia.org/wiki/Isometric_projection) of a valid polycube will always form a rhombuses-in-hexagon tiling, and vice versa.
 
 ### Example Output
 ```
