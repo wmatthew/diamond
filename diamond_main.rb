@@ -57,11 +57,10 @@ def explore_options(arr_list)
 
 			if ($examined_maps_count % 100 == 0)
 				clear_console()
-			  puts "Examined #{$examined_maps_count} maps."
-			  puts "Found #{$known_maps_count} unique maps."
-			  puts "  #{canon} (#{duplicate ? "dupe" : "new" })"
+			  puts "Examined #{$examined_maps_count} maps; found #{$known_maps_count} unique."
+			  puts "  Map #{canon} (#{duplicate ? "dupe" : "new" })"
 		  	puts kid.pretty
-		  	$erasable_lines = $erasable_lines + 3 + arr.map_size
+		  	$erasable_lines = $erasable_lines + 2 + arr.map_size
 	  	end
   	else
   	  arr_list.unshift(kid)
@@ -85,7 +84,7 @@ end
 # Explore the space of all possible maps, starting with an empty
 # (not filled in) map. Report on progress as you go.
 def do_search(map_size)
-	puts "Building a catalog of all possible maps."
+	puts "Building a catalog of all possible maps of size #{map_size}."
   partials = [GridMap.new(map_size)]
   while (!partials.empty?) do
     partials = explore_options(partials)
