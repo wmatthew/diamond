@@ -1,5 +1,5 @@
 # diamond
-Scripts to help design a puzzle.
+Scripts to help design a puzzle. May contain spoilers.
 
 This program determines the number of arrangements that fit a set of criteria. There are two ways to define these arrangements:
  
