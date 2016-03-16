@@ -10,7 +10,7 @@ These two definitions are equivalent; an [isometric projection](https://en.wikip
 
 ### Example Output
 ```
-> ruby diamond_main.rb 
+> ruby diamond_main.rb -n 3 -v
 Starting Diamond Program
 Building a catalog of all possible maps of size 3.
 ...

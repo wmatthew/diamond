@@ -8,7 +8,8 @@
 #       3 axial directions.
 #
 # These two definitions are equivalent.
-# Usage: ruby diamond_main.rb
+#
+# Usage: ruby diamond_main.rb -h # display usage information
 
 # Past Results
 #=======================
@@ -20,6 +21,28 @@
 #  5      80M??     250M??     >10min
 
 require './diamond'
+require 'optparse'
+
+$verbose = false
+$map_size = 3
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: diamond_main.rb [-hv] [-n NUM]"
+
+  opts.on("-v", "--verbose", "Run verbosely") do |v|
+    $verbose = true
+  end
+
+  opts.on("-nNUM", "--num=NUM", "Run with map size NUM") do |n|
+    $map_size = n.to_i
+  end
+
+  opts.on("-h", "--help", "Display this message") do |v|
+    puts opts
+    exit
+  end
+
+end.parse!
 
 # Hash of distinct canonical_keys for all complete maps encountered so far.
 $known_maps = {}
@@ -73,6 +96,10 @@ end
 # Clear erasable lines and reset the line counter.
 # Useful when displaying progress (rapidly changing stats / map)
 def clear_console()
+	if ($verbose)
+		return
+	end
+
 	print "\r" # move to start of line
 	(1..$erasable_lines).each do
 		print "\e[A" # move up
@@ -95,7 +122,7 @@ def do_search(map_size)
   puts "#{$known_maps_count} unique maps were found."
 end
 
-do_search(3)
+do_search($map_size)
 
 $end_time = Time.now
 puts "Time: #{$end_time - $start_time}s"
