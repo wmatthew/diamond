@@ -87,7 +87,7 @@ def all_tests
 	twoMap.unset(3,3)
 	kids = twoMap.get_children
 	assert(kids.count, 3, "twoMap.get_children")
-	assert(kids.map{|x|x.get_key}, [2222222222222220,2222222222222221,2222222222222222,], "twoMap get_children > get_key")
+	assert(kids.map{|x|x.get_key}, [2222222222222220,2222222222222221,2222222222222222], "twoMap get_children > get_key")
 	assert(kids.map{|x|x.complete}, [true,true,true], "twoMap get_children > complete")
 	assert(twoMap.complete, false, "twoMap.complete after get_children")
 
