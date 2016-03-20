@@ -21,11 +21,12 @@
 var GridMap = require('./GridMap.js').GridMap;
 console.time("explore");
 
-var verbose = true; // TODO: make it an arg?
-var map_size = 4; // TODO: make it an arg?
+var verbose = false; // TODO: make it an arg?
+var map_size = 5; // TODO: make it an arg?
 var known_maps = [];
 var known_maps_count = 0;
 var examined_maps_count = 0;
+var erasable_lines = 0;
 
 function explore_options(arr_list) {
 	if (arr_list.length == 0) {
@@ -47,8 +48,10 @@ function explore_options(arr_list) {
   			known_maps_count ++;
   		}
   		if (examined_maps_count % 1000 == 0) {
+  			clear_console();
   			console.log("Examined " + examined_maps_count + " maps; found " + known_maps_count + " unique.");
-  			// TODO: display a map?
+  			console.log(kid.pretty());
+  			erasable_lines += 2 + map_size;
   		}
   	} else {
   		arr_list.unshift(kid);
@@ -56,6 +59,17 @@ function explore_options(arr_list) {
 
   }
   return arr_list;
+}
+
+function clear_console() {
+	if (verbose) return;
+
+	console.log("\r"); // move to start of line
+	for (var i=0; i<erasable_lines; i++) {
+		process.stdout.write("\x1B[A"); // move up
+	}
+	process.stdout.write("\x1B[J"); // clear until end
+	erasable_lines = 0;
 }
 
 function do_search(map_size) {
