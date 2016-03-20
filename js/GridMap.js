@@ -6,7 +6,7 @@
 // with no overhangs in all 3 axial directions. See README for more
 // information on that.
 
-// Usage: don't call this directly; see GridTests.js.
+// Usage: don't call this directly; see GridTests.js and ExploreMaps.js
 
 function GridMap(n) {
 	// static constants
@@ -158,7 +158,7 @@ GridMap.prototype.canonical_key = function() {
     var key5 = rot1.mirror_flip().get_key();
     var key6 = rot2.mirror_flip().get_key();
 
-    Math.min(key1, key2, key3, key4, key5, key6);
+    return Math.min(key1, key2, key3, key4, key5, key6);
 }
 
 exports.GridMap = GridMap;

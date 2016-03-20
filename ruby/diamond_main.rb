@@ -24,7 +24,7 @@ require './diamond'
 require 'optparse'
 
 $verbose = false
-$map_size = 3
+$map_size = 3 # default only; generally set by command line option -n
 
 OptionParser.new do |opts|
   opts.banner = "Usage: diamond_main.rb [-hv] [-n NUM]"
