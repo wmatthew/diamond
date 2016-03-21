@@ -9,38 +9,31 @@ These programs explore the arrangements that fit a set of criteria. There are tw
 
 These sets are equivalent; an [isometric projection](https://en.wikipedia.org/wiki/Isometric_projection) of a valid polycube will always form a rhombuses-in-hexagon tiling, and vice versa.
 
-## Ruby scripts
-The ruby script diamond_main.rb explores all possible arrangements, displaying the arrangements ('maps') as it examines them. For each map it generates a canonical key that is invariant across rotation and mirroring; it stores these keys and uses them to tell if maps are unique or transformed duplicates of previously seen maps.
+## Scripts
+The script ExploreMaps.js explores all possible arrangements, displaying the arrangements ('maps') as it examines them. For each map it generates a canonical key that is invariant across rotation and mirroring; it stores these keys and uses them to tell if maps are unique or transformed duplicates of previously seen maps.
 
 The final report shows the number of maps examined and the number of unique maps found.
 
 ### Example Output
 ```
-> ruby diamond_main.rb -n 4 -v
+> node ExploreMaps.js
 Starting Diamond Program
 Building a catalog of all possible maps of size 4.
 
 ...
 
-Examined 109100 maps; found 33075 unique.
-  Map 3331331133102100 (new)
-4 4 3 2
-4 3 1 0
-3 3 1 0
-0 0 0 0
-Examined 109200 maps; found 33129 unique.
-  Map 4222422232212110 (dupe)
-4 4 3 2
-4 3 0 0
-4 3 0 0
-3 2 0 0
+Examined 190000 maps; found 39485 unique.
+4 3 2 1
+4 2 1 1
+4 2 1 1
+4 0 0 0
 
 ...
 
 ...done.
 232848 maps examined.
 40238 unique maps were found.
-Time: 75.582515s
+explore: 15820ms
 > 
 ```
 This output has been shortened.

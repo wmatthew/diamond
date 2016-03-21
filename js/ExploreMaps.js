@@ -21,8 +21,8 @@
 var GridMap = require('./GridMap.js').GridMap;
 console.time("explore");
 
-var verbose = false; // TODO: make it an arg?
-var map_size = 5; // TODO: make it an arg?
+var verbose = true; // TODO: make it an arg?
+var map_size = 4; // TODO: make it an arg?
 var known_maps = [];
 var known_maps_count = 0;
 var examined_maps_count = 0;
@@ -47,7 +47,7 @@ function explore_options(arr_list) {
   		if (!duplicate) {
   			known_maps_count ++;
   		}
-  		if (examined_maps_count % 1000 == 0) {
+  		if (examined_maps_count % 10000 == 0) {
   			clear_console();
   			console.log("Examined " + examined_maps_count + " maps; found " + known_maps_count + " unique.");
   			console.log(kid.pretty());

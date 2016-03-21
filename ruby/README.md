@@ -1,5 +1,5 @@
 # Diamond: Ruby Scripts
-The first iteration of this project was done in Ruby; these scripts have since been ported to JavaScript. These are kept around for comparative purposes.
+The first iteration of this project was done in Ruby; these scripts have since been ported to JavaScript. These are kept around for comparison.
 
 - diamond.rb (GridMap.js)- container class representing an nxn grid of integers.
 - diamond_main.rb (ExploreMaps.js) - explore and count all possible grids conforming to certain rules.
