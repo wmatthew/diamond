@@ -136,7 +136,6 @@ GridMap.prototype.mirror_flip = function() {
   return mirror;
 }
 
-// TODO: broken!
 GridMap.prototype.tri_rotate = function() {
   var rot = this.deep_copy();
   for (var x = 0; x < this.map_size; x++) {

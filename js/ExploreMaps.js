@@ -23,13 +23,19 @@
 var GridMap = require('./GridMap.js').GridMap;
 console.time("explore");
 
-var verbose = true; // TODO: make it an arg?
-var map_size = 4; // TODO: make it an arg?
+var verbose = false; // TODO: make it an arg?
+var map_size = 5; // TODO: make it an arg?
 var known_maps = [];
 var known_maps_count = 0;
 var examined_maps_count = 0;
 var erasable_lines = 0;
 
+// Remember the maps if we want to do something with them,
+// but if we just want a count, no need.
+var remember_maps = false;
+
+// Given a list of partial maps, explore the space of all possible completions
+// to those maps.
 function explore_options(arr_list) {
 	if (arr_list.length == 0) {
 		console.log("Warning - tried to explore_options on an empty list. Shouldn't happen.");
@@ -43,13 +49,15 @@ function explore_options(arr_list) {
   for (kid of kids) {
   	if (kid.complete) {
   		var canon = kid.canonical_key();
-  		var duplicate = known_maps[canon] === true;
-  		known_maps[canon] = true;
+  		var duplicate = (canon !== kid.get_key());
+  		if (remember_maps) {
+  		  known_maps[canon] = true;
+  	  }
   		examined_maps_count ++;
   		if (!duplicate) {
   			known_maps_count ++;
   		}
-  		if (examined_maps_count % 10000 == 0) {
+  		if (examined_maps_count % 1000 == 0) {
   			clear_console();
   			console.log("Examined " + examined_maps_count + " maps; found " + known_maps_count + " unique.");
   			console.log(kid.pretty());
@@ -80,6 +88,7 @@ function do_search(map_size) {
   while (partials.length > 0) {
     partials = explore_options(partials);
   }
+  clear_console();
   console.log("...done.");
   console.log(examined_maps_count + " maps examined.");
   console.log(known_maps_count + " unique maps were found.");
