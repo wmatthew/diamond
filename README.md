@@ -2,10 +2,10 @@
 A collection of scripts to help design a puzzle. Contains puzzle spoilers.
 
 ## Concepts
-These programs explore the arrangements that fit a set of criteria. There are two ways to define these arrangements:
+These scripts calculate integer sequence [A008793](https://oeis.org/A008793), the number of arrangements that fit a set of criteria. There are two ways to define these arrangements:
  
-- P(n): The set of tilings of 3n^2 60º rhombuses that fill a regular hexagon.
-- Q(n): The set of [polycubes](https://en.wikipedia.org/wiki/Polycube) that fit in a n^3 box with no overhangs in all 3 axial directions.
+- P(n): The number of tilings of 3n^2 60º rhombuses that fill a regular n-sided hexagon.
+- Q(n): The number of [polycubes](https://en.wikipedia.org/wiki/Polycube) that fit in a n^3 box with no overhangs in all 3 axial directions.
 
 These sets are equivalent; an [isometric projection](https://en.wikipedia.org/wiki/Isometric_projection) of a valid polycube will always form a rhombuses-in-hexagon tiling, and vice versa.
 
