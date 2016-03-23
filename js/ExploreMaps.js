@@ -11,20 +11,18 @@
 
 // Past Results
 //=======================
-// Size   Uniques   Total         Time
-//  1      2         2             7 ms
-//  2      10        20           10 ms
-//  3      226       980          75 ms
-//  4      40,238    232,848      18 s
-//  5      362,309*  267,227,532  25 hrs
-//
-// *implausibly low. bug? hit memory limitation?
+// Size   Uniques      Total         Time
+//  1      2           2             7 ms
+//  2      10          20            10 ms
+//  3      226         980           75 ms
+//  4      40,238      232,848       18 s
+//  5      44,834,840  267,227,532   18 hrs
 
 var GridMap = require('./GridMap.js').GridMap;
 console.time("explore");
 
 var verbose = false; // TODO: make it an arg?
-var map_size = 5; // TODO: make it an arg?
+var map_size = 4; // TODO: make it an arg?
 var known_maps = [];
 var known_maps_count = 0;
 var examined_maps_count = 0;
